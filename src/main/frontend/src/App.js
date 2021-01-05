@@ -1,40 +1,21 @@
-import React, { useState, useEffect } from "react";
-import './App.css';
-import axios from "axios" ;
+import React from 'react'; 
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-const AlgosInfo = () => { // AlgosInfo component
-
-  const [algosInfos, setAlgosInfo] = useState([]);
-
-  const fetchAlgosInfo = () => {
-    axios.get("http://localhost:8080/api/algos-info").then(res => {
-      console.log(res);
-      setAlgosInfo(res.data);
-    });
-  };
-
-  useEffect(() => {
-    fetchAlgosInfo();
-  }, []);
-
-  return algosInfos.map((algoInfos, index) => {
-    
-    return (
-      <div>
-        <h1>{algoInfos.name}</h1>
-        <p>{algoInfos.description}</p>
-        <p>{algoInfos.complexity}</p>
-      </div>
-    )
-  })
-};
+// components
+import Home from './Home';
+import AlgoPage from './AlgoPage';
 
 function App() {
-  return (
-    <div className="App">
-      <AlgosInfo />
-    </div>
-  );
-}
 
+  return (
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/algos-info' component={Home} />
+        <Route path='/api/algos-info/:id' exact component={AlgoPage} />
+      </Switch>
+    </Router>
+  )
+}
+ 
 export default App;

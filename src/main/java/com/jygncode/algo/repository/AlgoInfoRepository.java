@@ -4,5 +4,5 @@ import com.jygncode.algo.entity.AlgoInfo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AlgoInfoRepository extends JpaRepository<AlgoInfo, Long>{
+public interface AlgoInfoRepository extends JpaRepository<AlgoInfo, Long> {
 }

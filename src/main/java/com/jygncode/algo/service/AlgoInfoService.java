@@ -1,6 +1,7 @@
 package com.jygncode.algo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.jygncode.algo.entity.AlgoInfo;
 import com.jygncode.algo.repository.AlgoInfoRepository;
@@ -20,5 +21,13 @@ public class AlgoInfoService {
 
     public List<AlgoInfo> getAlgosInfo() {
         return algoInfoRepository.findAll();
+    }
+
+    public Optional<AlgoInfo> getAlgoInfo(Long id) {
+        return algoInfoRepository.findById(id);
+    }
+
+    public void deleteAlgoInfo(Long id) {
+        algoInfoRepository.deleteById(id);
     }
 }
