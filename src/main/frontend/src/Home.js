@@ -1,12 +1,13 @@
-import AppNav from './AppNav';
-import AlgoInfo from './AlgosList';
+import AppNav from './components/AppNav';
+import AlgoList from './AlgosList';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Home.css';
 
 function Home() {
     return (
         <>
             <AppNav/>
-            <AlgoInfo/>
+            <AlgoList/>
         </> 
     );
 }

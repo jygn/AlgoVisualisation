@@ -8,7 +8,6 @@ function AppNav() {
                 <Navbar.Brand href="/">AV</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/"> Home </Nav.Link>
-                    {/* <Nav.Link href="/algos-info"> Algorithms </Nav.Link> */}
                 </Nav>
             </Navbar>
         </>

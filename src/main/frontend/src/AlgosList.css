@@ -1,3 +1,11 @@
-.center {
-    text-align: center;
+.MuiListItem-root {
+    justify-content: center !important;
+}
+
+.MuiListItem-root > a {
+    color: black;
+}
+
+.list-container {
+    padding: 2em;
 }

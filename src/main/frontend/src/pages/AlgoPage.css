@@ -1,0 +1,13 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    /* margin-top: 2em; */
+}
+
+.algo-container {
+    padding: 2em;
+}
+
+.algo-container > h4 {
+    margin-bottom: 1.5em;
+}

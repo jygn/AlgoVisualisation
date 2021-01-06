@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './AlgoPage.css';
 
 // components
-import AppNav from './AppNav';
-import NetworkGraph from './NetworkGraph';
+import NetworkGraph from './../components/NetworkGraph';
+import AppNav from './../components/AppNav';
+import AlgosList from '../AlgosList';
+import Loading from '../components/Loading';
 
 const initialElements = [
     {
@@ -80,7 +83,7 @@ const initialElements = [
     },
     {
         id: 'h',
-        sourcePosition: 'left',
+        sourcePosition: 'top',
         targetPosition: 'top',
         data: { label: 'H' },
         position: { x: 750, y: 300 },
@@ -215,25 +218,36 @@ function AlgoPage() {
 
     const [algo, setAlgo] = useState(null);
     const [elements, setElements] = useState(initialElements);
+    const [loading, setLoading] = useState(false);
+
     const { id } = useParams();
 
     useEffect(() => {
+        setLoading(true);
         fetch(`/api/algos-info/${ id }`)
             .then((response) => response.json())
             .then((data) => {
                 setAlgo(data);
                 setElements(initialElements);   // TODO: changer temporaire..
+                setLoading(false);
             });
     }, [id]);
 
     return (
-        algo ? 
-        <>
+        <>  
             <AppNav/>
-            <h2> { algo.name } </h2>
-            <NetworkGraph elements={elements}/>
+            <div className='flex-container'>
+                <AlgosList/>
+                   {
+                        algo && !loading ?  
+                            <div className='algo-container'>
+                                <h4> { algo.name } </h4>
+                                <NetworkGraph elements={elements}/>
+                            </div>
+                        : <Loading/>
+                    }
+            </div>
         </>
-        : 'Loading...'
     )
 }
 
