@@ -1,3 +1,13 @@
 .edgestyle {
-    color: red;
+}
+
+.nodestyle {
+    font-weight: 700;
+    font-size: 13px;
+    background: #ececec;
+}
+
+.react-flow__edge-text {
+    font-size: 13px;
+    font-weight: 700;
 }

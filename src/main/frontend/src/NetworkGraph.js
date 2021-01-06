@@ -4,138 +4,218 @@ import './NetworkGraph.css';
 
 const elements = [
   {
-    id: '1',
+    id: 'a',
     sourcePosition: 'right',
-    type: 'input',
+    targetPosition: 'right',
+    // type: 'input',
     data: { label: 'A' },
-    position: { x: 0, y: 80 },
-    connectable : false
+    position: { x: 10, y: 100 },
+    connectable : false,
+    draggable : false,
+    className: 'nodestyle'
   },
   {
-    id: '2',
+    id: 'b',
     sourcePosition: 'right',
     targetPosition: 'left',
     data: { label: 'B' },
     position: { x: 250, y: 0 },
-    connectable : false
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: '3',
+    id: 'c',
     sourcePosition: 'right',
     targetPosition: 'left',
     data: { label: 'C' },
-    position: { x: 250, y: 160 },
-    connectable : false
+    position: { x: 250, y: 200 },
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: '4',
-    sourcePosition: 'right',
+    id: 'd',
+    sourcePosition: 'bottom',
     targetPosition: 'left',
     data: { label: 'D' },
     position: { x: 500, y: 0 },
-    connectable : false
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: '5',
-    sourcePosition: 'top',
+    id: 'e',
+    sourcePosition: 'bottom',
     targetPosition: 'bottom',
     data: { label: 'E' },
-    position: { x: 400, y: 90 },
-    connectable : false
+    position: { x: 350, y: 100 },
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: '6',
+    id: 'f',
     sourcePosition: 'bottom',
     targetPosition: 'top',
     data: { label: 'F' },
-    position: { x: 500, y: 230 },
-    connectable : false
+    position: { x: 500, y: 200 },
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: '7',
-    sourcePosition: 'right',
+    id: 'g',
+    sourcePosition: 'bottom',
     targetPosition: 'left',
     data: { label: 'G' },
     position: { x: 750, y: 50 },
-    connectable : false
-
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: '8',
-    sourcePosition: 'right',
-    targetPosition: 'left',
+    id: 'h',
+    sourcePosition: 'left',
+    targetPosition: 'top',
     data: { label: 'H' },
     position: { x: 750, y: 300 },
-    connectable : false
+    draggable : false,
+    connectable : false,
+    className: 'nodestyle'
   },
   {
-    id: 'e1-2',
-    source: '1',
+    id: 'a-b',
+    source: 'a',
     type: 'smoothstep',
-    target: '2',
+    target: 'b',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
   },
   {
-    id: 'e1-3',
-    source: '1',
+    id: 'a-c',
+    source: 'a',
     type: 'smoothstep',
-    target: '3',
+    target: 'c',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
   },
   {
-    id: 'e1-5',
-    source: '1',
+    id: 'a-e',
+    source: 'a',
     type: 'smoothstep',
-    target: '5',
+    target: 'e',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
   },
   {
-    id: 'e2-4',
-    source: '2',
+    id: 'b-d',
+    source: 'b',
     type: 'smoothstep',
-    target: '4',
-    label: 'edge label',
-    animated: true
-  },
-  {
-    id: 'e3-5',
-    source: '3',
-    type: 'smoothstep',
-    target: '5',
+    target: 'd',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
   },
   {
-    id: 'e3-6',
-    source: '3',
+    id: 'c-f',
+    source: 'c',
     type: 'smoothstep',
-    target: '6',
+    target: 'f',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
   },
   {
-    id: 'e5-7',
-    source: '5',
+    id: 'd-f',
+    source: 'd',
     type: 'smoothstep',
-    target: '7',
+    target: 'f',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
   },
   {
-    id: 'e6-8',
-    source: '6',
+    id: 'd-f',
+    source: 'd',
     type: 'smoothstep',
-    target: '8',
+    target: 'f',
+    label: ran(),
     animated: true,
+    className: 'edgestyle'
+  },
+  {
+    id: 'g-h',
+    source: 'g',
+    type: 'smoothstep',
+    target: 'h',
+    label: ran(),
+    animated: true,
+    className: 'edgestyle'
+  },
+  {
+    id: 'd-g',
+    source: 'd',
+    type: 'smoothstep',
+    target: 'g',
+    label: ran(),
+    animated: true,
+    className: 'edgestyle'
+  },
+  {
+    id: 'f-h',
+    source: 'f',
+    type: 'smoothstep',
+    target: 'h',
+    label: ran(),
+    animated: true,
+    className: 'edgestyle'
+  },
+  {
+    id: 'b-e',
+    source: 'b',
+    type: 'smoothstep',
+    target: 'e',
+    label: ran(),
+    animated: true,
+    className: 'edgestyle'
+  },
+  {
+    id: 'c-e',
+    source: 'c',
+    type: 'smoothstep',
+    target: 'e',
+    label: ran(),
+    animated: true,
+    className: 'edgestyle'
+  },
+  {
+    id: 'f-g',
+    source: 'g',
+    type: 'smoothstep',
+    target: 'f',
+    label: ran(),
+    animated: true,
+    className: 'edgestyle'
   },
 ];
 
-  // function ran() {
-  //   return "" + Math.ceil(Math.random() * (10 - 1) + 1);
-  // }
+  function ran() {
+    return Math.ceil(Math.random() * (15 - 1) + 1);
+  }
 
 function NetworkGraph() {
+
   return (
-    <div style={{ height: 400 }}>
-      <ReactFlow elements={elements} />
-  </div>
+    <div style={{ height: 400, width: 1000 }}>
+      <ReactFlow elements={elements} 
+      zoomOnScroll = {false}
+      paneMoveable = {false}
+      zoomOnDoubleClick = {false}  />
+    </div>
   );
 }
 export default NetworkGraph
