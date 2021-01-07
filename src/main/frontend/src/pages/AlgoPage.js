@@ -4,8 +4,6 @@ import './AlgoPage.css';
 
 // components
 import NetworkGraph from './../components/NetworkGraph';
-import AppNav from './../components/AppNav';
-import AlgosList from '../AlgosList';
 import Loading from '../components/Loading';
 
 const initialElements = [
@@ -214,6 +212,12 @@ function ran() {
     return Math.ceil(Math.random() * (15 - 1) + 1);
 }
 
+function resetEdges(elems) {
+    elems.forEach((el) => {
+        if (el.className === "edgestyle")
+            el.label = ran();
+    }) 
+}
 function AlgoPage() {
 
     const [algo, setAlgo] = useState(null);
@@ -229,23 +233,22 @@ function AlgoPage() {
             .then((data) => {
                 setAlgo(data);
                 setElements(initialElements);   // TODO: changer temporaire..
+                resetEdges(initialElements);
                 setLoading(false);
             });
-    }, [id]);
+    }, [id]);   // re-render when id changes
 
     return (
         <>  
-            <AppNav/>
             <div className='flex-container'>
-                <AlgosList/>
-                   {
-                        algo && !loading ?  
-                            <div className='algo-container'>
-                                <h4> { algo.name } </h4>
-                                <NetworkGraph elements={elements}/>
-                            </div>
-                        : <Loading/>
-                    }
+                {
+                    algo && !loading ?  
+                        <div className='algo-container'>
+                            <h4> { algo.name } </h4>
+                            <NetworkGraph elements={elements}/>
+                        </div>
+                    : <Loading/>
+                }
             </div>
         </>
     )

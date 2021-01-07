@@ -1,11 +1,6 @@
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    /* margin-top: 2em; */
-}
-
 .algo-container {
     padding: 2em;
+    color: #222831;
 }
 
 .algo-container > h4 {

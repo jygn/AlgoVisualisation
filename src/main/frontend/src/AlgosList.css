@@ -2,10 +2,12 @@
     justify-content: center !important;
 }
 
-.MuiListItem-root > a {
-    color: black;
+.MuiListItem-root a, .MuiListItem-root a:hover  {
+    color: #222831;
 }
 
 .list-container {
     padding: 2em;
+    color: #222831;
 }
+

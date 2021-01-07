@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';   // shortcut imrc
-// import { ListGroup, ListGroupItem } from 'reactstrap';
+import React from 'react';   // shortcut imrc
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -7,9 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from 'react-router-dom';
 
 import './AlgosList.css';
-
-// import AlgoPage from './pages/AlgoPage';
-// import NetworkGraph from './components/NetworkGraph';
+import Loading from './components/Loading';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,22 +21,10 @@ function ListItemLink(props) {
     return <ListItem button {...props} />;
 }
 
-function AlgosList() {
+function AlgosList({algosList}) {
 
-    const [algosList, setAlgosList] = useState(null);   // getter and setter (algosList init to null..)
     const classes = useStyles();
 
-    useEffect(() => { // do something on render
-
-        // fetch return a promess async -> then once its completed do something..
-        fetch('/api/algos-info')
-            .then((reponse) => reponse.json()) // parse the body of the response to json
-            .then((data) => {   // json
-                setAlgosList(data); // re-render the screen 
-            });
-    }, []); // [algosList] dependancy array, useEffect() only when algosList change
-
-    console.log(algosList);
     return ( // onClick={ () => setId(id) }
         <>
             <div className={classes.root}>
@@ -55,7 +40,7 @@ function AlgosList() {
                                         </Link>
                                     </ListItemLink> 
                                 </div>
-                            ) : 'Loading..'  // else loading data
+                            ) : <Loading/>  // else loading data
                         }
                     </List>
                 </div>
