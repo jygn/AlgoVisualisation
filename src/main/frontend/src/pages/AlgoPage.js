@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import './AlgoPage.css';
 
 // components
-import NetworkGraph from './../components/NetworkGraph';
-import Loading from '../components/Loading';
+import NetworkGraph from '../components/NetworkGraph/NetworkGraph';
+import Loading from '../components/Loading/Loading';
 
 const initialElements = [
     {
@@ -119,7 +119,7 @@ const initialElements = [
     {
         id: 'b-d',
         source: 'b',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'd',
         label: ran(),
         animated: true,
@@ -137,7 +137,7 @@ const initialElements = [
     {
         id: 'd-f',
         source: 'd',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'f',
         label: ran(),
         animated: true,
@@ -146,7 +146,7 @@ const initialElements = [
     {
         id: 'd-f',
         source: 'd',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'f',
         label: ran(),
         animated: true,
@@ -155,7 +155,7 @@ const initialElements = [
     {
         id: 'g-h',
         source: 'g',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'h',
         label: ran(),
         animated: true,
@@ -164,7 +164,7 @@ const initialElements = [
     {
         id: 'd-g',
         source: 'd',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'g',
         label: ran(),
         animated: true,
@@ -173,7 +173,7 @@ const initialElements = [
     {
         id: 'f-h',
         source: 'f',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'h',
         label: ran(),
         animated: true,
@@ -182,7 +182,7 @@ const initialElements = [
     {
         id: 'b-e',
         source: 'b',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'e',
         label: ran(),
         animated: true,
@@ -191,7 +191,7 @@ const initialElements = [
     {
         id: 'c-e',
         source: 'c',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'e',
         label: ran(),
         animated: true,
@@ -200,12 +200,20 @@ const initialElements = [
     {
         id: 'f-g',
         source: 'g',
-        type: 'smoothstep',
+        type: 'straight',
         target: 'f',
         label: ran(),
         animated: true,
-        className: 'edgestyle'
     },
+    {
+        id: 'e-d',
+        source: 'e',
+        type: 'straight',
+        target: 'd',
+        label: ran(),
+        animated: true,
+        // className: 'visited'
+    }
 ];
 
 function ran() {
@@ -214,14 +222,13 @@ function ran() {
 
 function resetEdges(elems) {
     elems.forEach((el) => {
-        if (el.className === "edgestyle")
+        if (el.source)  // edge?
             el.label = ran();
     }) 
 }
 function AlgoPage() {
 
     const [algo, setAlgo] = useState(null);
-    const [elements, setElements] = useState(initialElements);
     const [loading, setLoading] = useState(false);
 
     const { id } = useParams();
@@ -232,7 +239,6 @@ function AlgoPage() {
             .then((response) => response.json())
             .then((data) => {
                 setAlgo(data);
-                setElements(initialElements);   // TODO: changer temporaire..
                 resetEdges(initialElements);
                 setLoading(false);
             });
@@ -245,7 +251,7 @@ function AlgoPage() {
                     algo && !loading ?  
                         <div className='algo-container'>
                             <h4> { algo.name } </h4>
-                            <NetworkGraph elements={elements}/>
+                            <NetworkGraph elements={initialElements}/>
                         </div>
                     : <Loading/>
                 }

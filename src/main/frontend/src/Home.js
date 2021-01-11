@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AlgoList from './AlgosList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
-import Loading from './components/Loading';
+import Loading from './components/Loading/Loading';
 
 function Home() {
 

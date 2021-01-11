@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-import AppNav from './components/AppNav';
+import AppNav from './components/AppNav/AppNav';
 
 // components
 import Home from './Home';

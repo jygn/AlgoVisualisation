@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from 'react-router-dom';
 
 import './AlgosList.css';
-import Loading from './components/Loading';
+import Loading from './components/Loading/Loading';
 
 
 const useStyles = makeStyles((theme) => ({

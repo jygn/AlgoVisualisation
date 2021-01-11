@@ -6,3 +6,7 @@
 .algo-container > h4 {
     margin-bottom: 1.5em;
 }
+
+.visited {
+    stroke: red !important;
+}

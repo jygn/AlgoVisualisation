@@ -10,3 +10,7 @@
     color: #f2a365 !important;
     text-decoration: none !important;
 }
+
+.MuiSvgIcon-root {
+    margin-bottom: 5px;
+}
