@@ -50,7 +50,6 @@ export default class PriorityQueue {
     /**
      * Get and element of the queue by id
      * Return null if the element is not in the queue
-     * @param {int} id 
      */
     get(id) {
         for (var i = 0; i < this.items.length; i++) { 
@@ -68,7 +67,7 @@ export default class PriorityQueue {
         let i = 0;
         for (i = 0; i < this.items.length; i++) { 
             if (this.items[i].id === elem.id) { 
-                this.items.splice(i,1);
+                this.items.splice(i,1); // delete
                 break; 
             } 
         }
@@ -78,13 +77,7 @@ export default class PriorityQueue {
             return;
         }
 
-        // add element at the correct location in the queue
-        for (i = 0; i < this.items.length; i++) { 
-            if (this.items[i].dist > elem.dist) {
-                this.items.splice(i, 0, elem); 
-                break; 
-            } 
-        }
+        this.enqueue(elem);
     }
 
 }
