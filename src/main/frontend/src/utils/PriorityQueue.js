@@ -45,20 +45,25 @@ export default class PriorityQueue {
         return -1;
     }
 
-    // update(element) {
-    //     let i = 0;
-    //     for (i = 0; i < this.items.length; i++) { 
-    //         if (this.items[i].id === element.id) { 
-    //             this.items[i].dist = element.dist;
-    //             this.items[i].prev = element.prev;
-    //             break; 
-    //         } 
-    //     }
-    //     for (i = 0; i < this.items.length; i++) { 
-    //         if (this.items[i].dist > element.dist) {
-    //             this.items.splice(i, 0, element); 
-    //             break; 
-    //         } 
-    //     } 
-    // }
+    update(element) {
+        let i = 0;
+        for (i = 0; i < this.items.length; i++) { 
+            if (this.items[i].id === element.id) { 
+                this.items.splice(i,1);
+                break; 
+            } 
+        }
+
+        if (this.isEmpty()) {
+            this.items.push(element);
+            return;
+        }
+
+        for (i = 0; i < this.items.length; i++) { 
+            if (this.items[i].dist > element.dist) {
+                this.items.splice(i, 0, element); 
+                break; 
+            } 
+        }
+    }
 }

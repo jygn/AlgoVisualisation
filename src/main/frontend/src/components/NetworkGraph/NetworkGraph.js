@@ -51,7 +51,7 @@ function dijkstra(elems, source) {
         if (path_dist < v.dist) {
           v.dist = path_dist;
           v.prev = u;
-          q.enqueue(v);
+          q.update(v);
         }
       }
     })
