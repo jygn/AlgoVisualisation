@@ -144,15 +144,6 @@ const initialElements = [
         className: 'edgestyle'
     },
     {
-        id: 'd-f',
-        source: 'd',
-        type: 'straight',
-        target: 'f',
-        label: ran(),
-        animated: true,
-        className: 'edgestyle'
-    },
-    {
         id: 'g-h',
         source: 'g',
         type: 'straight',
