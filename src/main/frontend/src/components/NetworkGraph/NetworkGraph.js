@@ -46,7 +46,7 @@ function dijkstra(elems, source) {
       v_id = getLinkedNodeId(u.id, edge);
 
       v = q.get(v_id);
-      if (v != -1) {
+      if (v) {
 
         if (path_dist < v.dist) {
           v.dist = path_dist;
