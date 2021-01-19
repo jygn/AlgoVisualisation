@@ -35,7 +35,7 @@ function AlgosList({algosList}) {
                             algosList ? algosList.map(algo =>   // if algosList != null 
                                 <div key={algo.id}>
                                     <ListItemLink>
-                                        <Link to={`/api/algos-info/${algo.id}`}> 
+                                        <Link to={`/api/home/algos-info/${algo.id}`}> 
                                             <ListItemText className='center' primary={algo.name}/> 
                                         </Link>
                                     </ListItemLink> 

@@ -8,9 +8,14 @@ function AppNav() {
     return ( 
         <>
             <Navbar>
-                <Navbar.Brand><Link to={'/api/algos-info/'}> <VisibilityIcon/> AV </Link></Navbar.Brand>
+                <Navbar.Brand><Link to={'/api/home/'}> <VisibilityIcon/> AV </Link></Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Link to={'/api/algos-info/'}> Home </Link>
+                    <Nav.Item>
+                        <Link to={'/api/home/'}> Home </Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Link to={'/api/algos-info/'}> Algos_description </Link>
+                    </Nav.Item>
                 </Nav>
             </Navbar>
         </>

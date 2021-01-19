@@ -5,10 +5,10 @@ import './NetworkGraph.css';
 import PriorityQueue from  '../../utils/PriorityQueue'
 
 /**
- * Source: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
- * 
  * Dijkstra algorithm using PriorityQueue
  * 
+ * @param {JSON} elems network graph nodes and edges
+ * @param {JSON} source source node of the graph
  */
 function dijkstra(elems, source) {
 

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './AlgoPage.css';
 
 // components
+import Home from '../Home';
 import NetworkGraph from '../components/NetworkGraph/NetworkGraph';
 import Loading from '../components/Loading/Loading';
 
@@ -238,6 +239,7 @@ function AlgoPage() {
     return (
         <>  
             <div className='flex-container'>
+                <Home/>
                 {
                     algo && !loading ?  
                         <div className='algo-container'>
